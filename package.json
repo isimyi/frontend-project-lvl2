@@ -1,0 +1,29 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "Gendiff – Compares two configuration files and shows a difference.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isimyi/frontend-project-lvl2.git"
+  },
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
+  "type": "module",
+  "author": "Kristina Kovach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isimyi/frontend-project-lvl2/issues"
+  },
+  "homepage": "https://github.com/isimyi/frontend-project-lvl2#readme",
+  "dependencies": {
+    "commander": "^8.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2"
+  }
+}
