@@ -15,6 +15,32 @@ const getFilesContent = (filepath1, filepath2) => {
   return [parsedFileContent1, parsedFileContent2];
 };
 
+const typesMap = {
+  deleted: '-',
+  added: '+',
+  unchanged: ' ',
+  changed: {
+    previous: '-',
+    new: '+',
+  },
+};
+
+const formatDiff = (diffArray) => {
+  const lines = diffArray.map((item) => {
+    const entry = `${item.key}: ${item.value}`;
+    const valueReplacer = typesMap.changed.previous;
+    const newValueReplacer = typesMap.changed.new;
+
+    if (item.type === 'changed') {
+      return [` ${valueReplacer} ${entry}`, ` ${newValueReplacer} ${entry}`];
+    }
+
+    return ` ${typesMap[item.type]} ${entry}`;
+  });
+
+  return ['{', ...lines.flat(), '}'].join('\n');
+};
+
 const genDiff = (filepath1, filepath2) => {
   const [file1, file2] = getFilesContent(filepath1, filepath2);
   const uniqueKeys = _.union(Object.keys(file1), Object.keys(file2));
@@ -40,7 +66,7 @@ const genDiff = (filepath1, filepath2) => {
     return { key, value: file1[key], type: 'unchanged' };
   });
 
-  return result;
+  return formatDiff(result);
 };
 
 export default genDiff;
