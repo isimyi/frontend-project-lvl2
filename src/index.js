@@ -28,11 +28,11 @@ const typesMap = {
 const formatDiff = (diffArray) => {
   const lines = diffArray.map((item) => {
     const entry = `${item.key}: ${item.value}`;
-    const valueReplacer = typesMap.changed.previous;
+    const changedValueReplacer = typesMap.changed.previous;
     const newValueReplacer = typesMap.changed.new;
 
     if (item.type === 'changed') {
-      return [` ${valueReplacer} ${entry}`, ` ${newValueReplacer} ${entry}`];
+      return [` ${changedValueReplacer} ${entry}`, ` ${newValueReplacer} ${entry}`];
     }
 
     return ` ${typesMap[item.type]} ${entry}`;
@@ -65,6 +65,8 @@ const genDiff = (filepath1, filepath2) => {
 
     return { key, value: file1[key], type: 'unchanged' };
   });
+
+  result.sort((value1, value2) => value1.key.localeCompare(value2.key));
 
   return formatDiff(result);
 };
