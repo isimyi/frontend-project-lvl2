@@ -32,7 +32,7 @@ const formatDiff = (diffArray) => {
     const newValueReplacer = typesMap.changed.new;
 
     if (item.type === 'changed') {
-      return [` ${changedValueReplacer} ${entry}`, ` ${newValueReplacer} ${entry}`];
+      return [` ${changedValueReplacer} ${entry}`, ` ${newValueReplacer} ${item.key}: ${item.newValue}`];
     }
 
     return ` ${typesMap[item.type]} ${entry}`;
