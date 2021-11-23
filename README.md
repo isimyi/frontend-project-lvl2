@@ -24,7 +24,7 @@
     npm link
     ```
    
-###Usage
+### Usage
 For help information
 
     gendiff -h
@@ -33,5 +33,5 @@ To compare files
 
     gendiff <filepath1> <filepath2>
 
-####Example
+#### Example
 [![asciicast](https://asciinema.org/a/HbyFAvRA8PHMMJ1XVFPixixN1.svg)](https://asciinema.org/a/HbyFAvRA8PHMMJ1XVFPixixN1)
