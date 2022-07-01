@@ -25,17 +25,17 @@ const typesMap = {
   },
 };
 
-const formatDiff = (diffArray) => {
+const formatDiff = (diffArray, spacesCount = '  ') => {
   const lines = diffArray.map((item) => {
     const entry = `${item.key}: ${item.value}`;
     const changedValueReplacer = typesMap.changed.previous;
     const newValueReplacer = typesMap.changed.new;
 
     if (item.type === 'changed') {
-      return [` ${changedValueReplacer} ${entry}`, ` ${newValueReplacer} ${item.key}: ${item.newValue}`];
+      return [`${spacesCount}${changedValueReplacer} ${entry}`, `${spacesCount}${newValueReplacer} ${item.key}: ${item.newValue}`];
     }
 
-    return ` ${typesMap[item.type]} ${entry}`;
+    return `${spacesCount}${typesMap[item.type]} ${entry}`;
   });
 
   return ['{', ...lines.flat(), '}'].join('\n');
