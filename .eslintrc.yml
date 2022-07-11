@@ -8,9 +8,10 @@ extends:
   - 'airbnb-base'
 
 parserOptions:
-  ecmaVersion: 11
+  ecmaVersion: latest
   sourceType: module
 
 rules:
   no-console: 0
   import/extensions: 0
+  no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }]

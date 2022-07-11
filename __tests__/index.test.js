@@ -4,8 +4,8 @@ import path from 'path';
 import fs from 'fs';
 import genDiff from '../src';
 
-const dirname = path.dirname(fileURLToPath(import.meta.url));
-const getFixturePath = (filename) => path.join(dirname, '..', '__fixtures__', filename);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const expectedResult = fs.readFileSync(getFixturePath('expected_result.txt'), { encoding: 'utf8' });
 
 test('genDiff', () => {
