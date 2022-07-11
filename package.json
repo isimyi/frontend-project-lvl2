@@ -22,14 +22,15 @@
   "homepage": "https://github.com/isimyi/frontend-project-lvl2#readme",
   "dependencies": {
     "commander": "^8.1.0",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.24.2",
     "lodash": "^4.17.21",
     "process": "^0.11.10"
   },
   "devDependencies": {
     "@jest/globals": "^28.1.2",
-    "jest": "^28.1.1"
+    "jest": "^28.1.1",
+    "jest-cli": "^28.0.3",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.2"
   }
 }
