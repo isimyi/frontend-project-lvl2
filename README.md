@@ -1,4 +1,3 @@
-### Hexlet tests, linter status
 [![Actions Status](https://github.com/isimyi/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/isimyi/frontend-project-lvl2/actions)
 [![Maintainability](https://api.codeclimate.com/v1/badges/bb437bb7da822b73fd05/maintainability)](https://codeclimate.com/github/isimyi/frontend-project-lvl2/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/bb437bb7da822b73fd05/test_coverage)](https://codeclimate.com/github/isimyi/frontend-project-lvl2/test_coverage)
