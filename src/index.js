@@ -2,17 +2,15 @@ import _ from 'lodash';
 import fs from 'fs';
 import process from 'process';
 import path from 'path';
+import parse from './parsers.js'
 
-const getFilesContent = (filepath1, filepath2) => {
+const getFileContent = (filepath) => {
   const currentDirectory = process.cwd();
-  const absoluteFilepath1 = path.resolve(currentDirectory, filepath1);
-  const absoluteFilepath2 = path.resolve(currentDirectory, filepath2);
-  const fileContent1 = fs.readFileSync(absoluteFilepath1, { encoding: 'utf8' });
-  const fileContent2 = fs.readFileSync(absoluteFilepath2, { encoding: 'utf8' });
-  const parsedFileContent1 = JSON.parse(fileContent1);
-  const parsedFileContent2 = JSON.parse(fileContent2);
+  const absoluteFilePath = path.resolve(currentDirectory, filepath);
+  const fileContent = fs.readFileSync(absoluteFilePath, { encoding: 'utf8' });
+  const fileExtension = path.extname(filepath).slice(1);
 
-  return [parsedFileContent1, parsedFileContent2];
+  return parse(fileContent, fileExtension);
 };
 
 const typesMap = {
@@ -42,7 +40,9 @@ const formatDiff = (diffArray, spacesCount = '  ') => {
 };
 
 const genDiff = (filepath1, filepath2) => {
-  const [file1, file2] = getFilesContent(filepath1, filepath2);
+  const file1 = getFileContent(filepath1);
+  const file2 = getFileContent(filepath2);
+
   const uniqueKeys = _.union(Object.keys(file1), Object.keys(file2));
 
   const result = uniqueKeys.map((key) => {
