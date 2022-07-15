@@ -2,7 +2,7 @@ import _ from 'lodash';
 import fs from 'fs';
 import process from 'process';
 import path from 'path';
-import parse from './parsers.js'
+import parse from './parsers.js';
 
 const getFileContent = (filepath) => {
   const currentDirectory = process.cwd();
