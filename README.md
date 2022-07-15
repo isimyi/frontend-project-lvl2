@@ -33,5 +33,9 @@ To compare files
 
     gendiff <filepath1> <filepath2>
 
-#### Example
+### Example
+#### Flat JSON files
 [![asciicast](https://asciinema.org/a/HbyFAvRA8PHMMJ1XVFPixixN1.svg)](https://asciinema.org/a/HbyFAvRA8PHMMJ1XVFPixixN1)
+
+#### Flat YAML files
+[![asciicast](https://asciinema.org/a/EF1fiqtqPd2zuUewfUQDissav.svg)](https://asciinema.org/a/EF1fiqtqPd2zuUewfUQDissav)
