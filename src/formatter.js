@@ -15,22 +15,22 @@ const formatter = (tree, formatterName) => {
   };
 
   const formatObject = (value, depth) => {
-      const indentSize = indent.repeat(indentsCount * depth);
-      const bracketIndentSize = indent.repeat(indentsCount * depth - indentsCount);
+    const indentSize = indent.repeat(indentsCount * depth);
+    const bracketIndentSize = indent.repeat(indentsCount * depth - indentsCount);
 
-      if (!_.isObject(value)) {
-        return `${value}`;
-      }
+    if (!_.isObject(value)) {
+      return `${value}`;
+    }
 
-      const entries = Object.entries(value);
+    const entries = Object.entries(value);
 
-      const formattedObject = entries.map((entry) => {
-        const [key, objectValue] = entry;
+    const formattedObject = entries.map((entry) => {
+      const [key, objectValue] = entry;
 
-        return `${indentSize}${key}: ${formatObject(objectValue, depth + 1)}`;
-      })
+      return `${indentSize}${key}: ${formatObject(objectValue, depth + 1)}`;
+    })
 
-      return [`{`, ...formattedObject, `${bracketIndentSize}}`].join('\n');
+    return [`{`, ...formattedObject, `${bracketIndentSize}}`].join('\n');
   };
 
   const stylish = (tree) => {
@@ -38,6 +38,7 @@ const formatter = (tree, formatterName) => {
     const iter = (node, depth) => node.map((currentNode) => {
       const indentSize = indent.repeat(indentsCount * depth);
       const indentSizeForType = indent.repeat(indentsCount * depth - 1);
+      console.log(`'${indentSize}'`);
       const bracketIndentSize = indent.repeat(indentsCount * depth - indentSize);
 
       const addLine = (type, value) => `${indentSizeForType}${type} ${currentNode.key}: ${formatObject(value, depth + 1)}`;
