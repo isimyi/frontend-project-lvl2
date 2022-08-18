@@ -1,8 +1,8 @@
 import _ from 'lodash';
 
 const formatter = (tree, formatterName) => {
-  const indent = '  ';
-  const indentsCount = 2;
+  const indent = ' ';
+  const indentsCount = 4;
 
   const typesMap = {
     deleted: '-',
@@ -37,14 +37,12 @@ const formatter = (tree, formatterName) => {
 
     const iter = (node, depth) => node.map((currentNode) => {
       const indentSize = indent.repeat(indentsCount * depth);
-      const indentSizeForType = indent.repeat(indentsCount * depth - 1);
-      console.log(`'${indentSize}'`);
-      const bracketIndentSize = indent.repeat(indentsCount * depth - indentSize);
-
+      const indentSizeForType = indent.repeat(indentsCount * depth - 2);
+      
       const addLine = (type, value) => `${indentSizeForType}${type} ${currentNode.key}: ${formatObject(value, depth + 1)}`;
 
       if (currentNode.type === 'internal') {
-        return `${indentSize}${currentNode.key}: ${['{', ...iter(currentNode.children, depth + 1), `${bracketIndentSize}}`].join('\n')}`;
+        return `${indentSize}${currentNode.key}: ${['{', ...iter(currentNode.children, depth + 1), `${indentSize}}`].join('\n')}`;
       }
 
       if (currentNode.type === 'changed') {
