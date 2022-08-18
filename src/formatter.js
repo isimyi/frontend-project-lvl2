@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const formatter = (tree, formatterName) => {
+const formatter = (diff, formatterName) => {
   const indent = ' ';
   const indentsCount = 4;
 
@@ -28,17 +28,16 @@ const formatter = (tree, formatterName) => {
       const [key, objectValue] = entry;
 
       return `${indentSize}${key}: ${formatObject(objectValue, depth + 1)}`;
-    })
+    });
 
-    return [`{`, ...formattedObject, `${bracketIndentSize}}`].join('\n');
+    return ['{', ...formattedObject, `${bracketIndentSize}}`].join('\n');
   };
 
   const stylish = (tree) => {
-
     const iter = (node, depth) => node.map((currentNode) => {
       const indentSize = indent.repeat(indentsCount * depth);
       const indentSizeForType = indent.repeat(indentsCount * depth - 2);
-      
+
       const addLine = (type, value) => `${indentSizeForType}${type} ${currentNode.key}: ${formatObject(value, depth + 1)}`;
 
       if (currentNode.type === 'internal') {
@@ -55,13 +54,13 @@ const formatter = (tree, formatterName) => {
       return addLine(typesMap[currentNode.type], currentNode.value);
     });
 
-    return [`{`, ...iter(tree, 1), `}`].join('\n');
+    return ['{', ...iter(tree, 1), '}'].join('\n');
   };
 
   switch (formatterName) {
     case 'stylish':
     default:
-      return stylish(tree);
+      return stylish(diff);
   }
 };
 

@@ -8,7 +8,7 @@ import formatter from './formatter.js';
 const getFileContent = (filepath) => {
   const currentDirectory = process.cwd();
   const absoluteFilePath = path.resolve(currentDirectory, filepath);
-  const fileContent = fs.readFileSync(absoluteFilePath, {encoding: 'utf8'});
+  const fileContent = fs.readFileSync(absoluteFilePath, { encoding: 'utf8' });
   const fileExtension = path.extname(filepath).slice(1);
 
   return parse(fileContent, fileExtension);
@@ -20,9 +20,7 @@ const buildDifferenceTree = (filepath1, filepath2) => {
 
   const iter = (tree1, tree2) => {
     const uniqueKeys = _.union(Object.keys(tree1), Object.keys(tree2));
-
     const result = uniqueKeys.map((key) => {
-
       if (!_.has(tree1, key)) {
         return { key, value: tree2[key], type: 'added' };
       }
