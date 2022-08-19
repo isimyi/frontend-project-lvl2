@@ -39,3 +39,6 @@ To compare files
 
 #### Flat YAML files
 [![asciicast](https://asciinema.org/a/EF1fiqtqPd2zuUewfUQDissav.svg)](https://asciinema.org/a/EF1fiqtqPd2zuUewfUQDissav)
+
+#### Nested JSON files
+[![asciicast](https://asciinema.org/a/OexmlOPDpePpTXGqGRX2MfAwF.svg)](https://asciinema.org/a/OexmlOPDpePpTXGqGRX2MfAwF)
