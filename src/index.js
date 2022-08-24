@@ -3,7 +3,7 @@ import fs from 'fs';
 import process from 'process';
 import path from 'path';
 import parse from './parsers.js';
-import formatter from './formatter.js';
+import formatter from './formatters/index.js';
 
 const getFileContent = (filepath) => {
   const currentDirectory = process.cwd();
