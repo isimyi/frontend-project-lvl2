@@ -8,7 +8,7 @@ const plain = (diff) => {
     }
     
     if (typeof value === 'string') {
-      return `${value}`
+      return `'${value}'`;
     }
     
     return value;
@@ -16,23 +16,23 @@ const plain = (diff) => {
   
   const iter = (tree, ancestry) => {
     const result = tree.flatMap((node) => {
-      const newAncestry = [ancestry, node.key].join('.');
+      const newAncestry = typeof ancestry === 'undefined' ? [node.key] : [ancestry, node.key].join('.');
       
       switch (node.type) {
         case 'internal':
           return iter(node.children, newAncestry);
         case 'deleted':
-          return `Property '${newAncestry.slice(1)}' was removed`;
+          return `Property '${newAncestry}' was removed`;
         case 'added':
-          return `Property '${newAncestry.slice(1)}' was added with value: ${formatValue(node.value)}`;
+          return `Property '${newAncestry}' was added with value: ${formatValue(node.value)}`;
         case 'changed':
-          return `Property '${newAncestry.slice(1)}' was updated. From '${formatValue(node.value)}' to '${formatValue(node.newValue)}'`;
+          return `Property '${newAncestry}' was updated. From ${formatValue(node.value)} to ${formatValue(node.newValue)}`;
         default:
           return [];
       }
     });
     
-    return result;
+    return result.join('\n');
   };
   
   return iter(diff);
