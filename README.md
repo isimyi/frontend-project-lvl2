@@ -42,3 +42,6 @@ To compare files
 
 #### Nested JSON files
 [![asciicast](https://asciinema.org/a/OexmlOPDpePpTXGqGRX2MfAwF.svg)](https://asciinema.org/a/OexmlOPDpePpTXGqGRX2MfAwF)
+
+#### Plain formatter
+[![asciicast](https://asciinema.org/a/sQxV7puXHHqvrujwYbQ4LM20n.svg)](https://asciinema.org/a/sQxV7puXHHqvrujwYbQ4LM20n)
