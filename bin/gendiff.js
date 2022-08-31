@@ -9,6 +9,6 @@ program
   .version('1.0.0')
   .description('Compares two configuration files and shows a difference.')
   .arguments('<filepath1> <filepath2>')
-  .option('-f, --formatter [type]', 'Choose output format', 'stylish')
-  .action((filepath1, filepath2) => console.log(genDiff(filepath1, filepath2, options.formatter)))
+  .option('-f, --format [type]', 'Choose output format', 'stylish')
+  .action((filepath1, filepath2) => console.log(genDiff(filepath1, filepath2, options.format)))
   .parse();
