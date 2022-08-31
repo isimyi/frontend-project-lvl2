@@ -10,8 +10,8 @@ const expectedResultStylish = fs.readFileSync(getFixturePath('expected_result_st
 const expectedResultPlain = fs.readFileSync(getFixturePath('expected_result_plain.txt'), { encoding: 'utf8' });
 
 test('genDiff', () => {
-  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toEqual(expectedResultStylish);
-  expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'))).toEqual(expectedResultStylish);
-  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), '-f plain')).toEqual(expectedResultPlain);
-  expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), '-f plain')).toEqual(expectedResultPlain);
+  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'stylish')).toEqual(expectedResultStylish);
+  expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), 'stylish')).toEqual(expectedResultStylish);
+  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'plain')).toEqual(expectedResultPlain);
+  expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), 'plain')).toEqual(expectedResultPlain);
 });
