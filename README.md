@@ -37,12 +37,12 @@ To compare files
 
     gendiff <filepath1> <filepath2>
 
-Gendiff comes with several formatter options: stylish, plain and json. You can specify formatter using `--format` or 
-`-f` flag on command line. By default, output will be formatted with stylish.
+Gendiff comes with several formatter options: stylish, plain and json. By default, output will be formatted with stylish. 
+You can specify formatter using `--format` or `-f` flag on command line.
 
     gendiff <filepath1> <filepath2> -f plain
 
-## Output Examples
+## Output examples
 ### stylish 
 #### Flat JSON files
 [![asciicast](https://asciinema.org/a/HbyFAvRA8PHMMJ1XVFPixixN1.svg)](https://asciinema.org/a/HbyFAvRA8PHMMJ1XVFPixixN1)
