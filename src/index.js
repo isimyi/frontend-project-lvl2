@@ -45,7 +45,7 @@ const buildDifferenceTree = (filepath1, filepath2) => {
       return { key, value: tree1[key], type: 'unchanged' };
     });
 
-    return _.orderBy(result, [entry => entry.key], ['asc'])
+    return _.orderBy(result, [(entry) => entry.key], ['asc']);
   };
 
   return iter(file1, file2, 1);
