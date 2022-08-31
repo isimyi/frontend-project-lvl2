@@ -45,8 +45,7 @@ const buildDifferenceTree = (filepath1, filepath2) => {
       return { key, value: tree1[key], type: 'unchanged' };
     });
 
-    result.sort((value1, value2) => value1.key.localeCompare(value2.key));
-    return result;
+    return _.orderBy(result, [entry => entry.key], ['asc'])
   };
 
   return iter(file1, file2, 1);
