@@ -2,7 +2,7 @@ import plain from './plain.js';
 import stylish from './stylish.js';
 import json from './json.js';
 
-const formatter = (diff, formatterName = 'stylish') => {
+const formatAstTree = (diff, formatterName = 'stylish') => {
   switch (formatterName) {
     case 'plain':
       return plain(diff);
@@ -11,8 +11,8 @@ const formatter = (diff, formatterName = 'stylish') => {
     case 'json':
       return json(diff);
     default:
-      throw new Error('Formatter with such name does not exist');
+      throw new Error(`Unknown formatter name: '${formatterName}'`);
   }
 };
 
-export default formatter;
+export default formatAstTree;
