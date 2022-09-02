@@ -7,7 +7,7 @@
 
 Compares two configuration files and shows a difference.
 
-- [Installation](#inslattalion)
+- [Installation](#installation)
 - [Usage](#usage)
 
 ## Installation
