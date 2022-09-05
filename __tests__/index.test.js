@@ -14,8 +14,8 @@ const expectedResultJson = fs.readFileSync(getFixturePath('expected_result_json.
 test.each(extensions)('genDiff', (extension) => {
   const beforeFullPath = getFixturePath(`fileBefore.${extension}`);
   const afterFullPath = getFixturePath(`fileAfter.${extension}`);
-  const jsonResult =  genDiff(beforeFullPath, afterFullPath, 'json');
-  
+  const jsonResult = genDiff(beforeFullPath, afterFullPath, 'json');
+
   expect(genDiff(beforeFullPath, afterFullPath)).toEqual(expectedResultStylish);
   expect(genDiff(beforeFullPath, afterFullPath, 'stylish')).toEqual(expectedResultStylish);
   expect(genDiff(beforeFullPath, afterFullPath, 'plain')).toEqual(expectedResultPlain);
