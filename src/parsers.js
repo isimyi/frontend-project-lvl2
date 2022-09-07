@@ -8,7 +8,7 @@ const parse = (data, extension) => {
     case 'yaml':
       return yaml.load(data);
     default:
-      throw new Error('This file extension is not supported. Supported file formats: yaml, json.');
+      throw new Error(`${extension} is not supported. Supported extensions: yaml, json.`);
   }
 };
 

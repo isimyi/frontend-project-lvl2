@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const stylish = (diff) => {
+const formatToStylish = (diff) => {
   const indent = ' ';
   const indentsCount = 4;
 
@@ -56,4 +56,4 @@ const stylish = (diff) => {
   return ['{', ...iter(diff, 1), '}'].join('\n');
 };
 
-export default stylish;
+export default formatToStylish;

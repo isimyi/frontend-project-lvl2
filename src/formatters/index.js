@@ -1,15 +1,15 @@
-import plain from './plain.js';
-import stylish from './stylish.js';
-import json from './json.js';
+import formatToPlain from './plain.js';
+import formatToStylish from './stylish.js';
+import formatToJson from './json.js';
 
 const formatAstTree = (diff, formatterName = 'stylish') => {
   switch (formatterName) {
     case 'plain':
-      return plain(diff);
+      return formatToPlain(diff);
     case 'stylish':
-      return stylish(diff);
+      return formatToStylish(diff);
     case 'json':
-      return json(diff);
+      return formatToJson(diff);
     default:
       throw new Error(`Unknown formatter name: '${formatterName}'`);
   }

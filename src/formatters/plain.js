@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const plain = (diff) => {
+const formatToPlain = (diff) => {
   const formatValue = (value) => {
     if (_.isObject(value)) {
       return '[complex value]';
@@ -37,4 +37,4 @@ const plain = (diff) => {
   return iter(diff);
 };
 
-export default plain;
+export default formatToPlain;
