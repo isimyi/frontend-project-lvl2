@@ -3,7 +3,7 @@ import _ from 'lodash';
 const buildAstTree = (filepath1, filepath2) => {
   const iter = (tree1, tree2) => {
     const uniqueKeys = _.union(Object.keys(tree1), Object.keys(tree2));
-    const result = uniqueKeys.map((key) => {
+    const nodes = uniqueKeys.map((key) => {
       if (!_.has(tree1, key)) {
         return { key, value: tree2[key], type: 'added' };
       }
@@ -28,7 +28,7 @@ const buildAstTree = (filepath1, filepath2) => {
       return { key, value: tree1[key], type: 'unchanged' };
     });
 
-    return _.orderBy(result, [(entry) => entry.key], ['asc']);
+    return _.orderBy(nodes, [(entry) => entry.key], ['asc']);
   };
 
   return iter(filepath1, filepath2, 1);
