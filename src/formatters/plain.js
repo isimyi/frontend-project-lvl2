@@ -26,6 +26,7 @@ const formatToPlain = (diff) => {
           return `Property '${newAncestry}' was added with value: ${formatValue(node.value)}`;
         case 'changed':
           return `Property '${newAncestry}' was updated. From ${formatValue(node.value)} to ${formatValue(node.newValue)}`;
+        case 'unchanged':
         default:
           return [];
       }
