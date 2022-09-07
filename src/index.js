@@ -1,7 +1,7 @@
 import process from 'process';
 import path from 'path';
 import fs from 'fs';
-import parse from './parsers';
+import parse from './parsers.js';
 import formatAstTree from './formatters/index.js';
 import buildAstTree from './astTreeBuilder.js';
 
